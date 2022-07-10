@@ -266,7 +266,7 @@ Devise.setup do |config|
   config.navigational_formats = []
 
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
+    jwt.secret = "c178fe3c0330ce3cf3c44b03d0dc1989ac621ed908bfe2812716e7d7e1b006e11fcb3ad5c2572e2d27a1e292ae32cb46cec3bfdc48669d16a06c72e00760115f"
     jwt.request_formats = {
       landlord: [nil, :json]
     }
