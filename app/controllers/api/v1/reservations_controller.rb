@@ -1,5 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: :destroy
+  
   def index
     @reservations = current_user.reservations
     render json: @reservations, status: 200
