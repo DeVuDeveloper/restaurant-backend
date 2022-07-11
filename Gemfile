@@ -46,3 +46,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
  gem 'rubocop', '>= 1.0', '< 2.0'
  gem 'net-smtp', require: false
+ gem "image_processing", ">= 1.2"
