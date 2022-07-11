@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: final_capstone_back_end_development
+  database: restaurant-backend
 
 
   # The specified database role being used to connect to postgres.
@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: final_capstone_back_end_test
+  database: restaurant-backend
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,7 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: final_capstone_back_end_production
-  username: final_capstone_back_end
-  password: <%= ENV["FINAL_CAPSTONE_BACK_END_DATABASE_PASSWORD"] %>
+  database: restaurant-backend_production
+  username: restaurant-backend
+  password: <%= ENV["RESTAURANT-BACKEND_DATABASE_PASSWORD"] %>
   
