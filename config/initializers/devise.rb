@@ -9,12 +9,23 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.jwt do |jwt|
+    jwt.secret = "RqoCmJvhMBv5jzTPO4dGxGuVkv15uFXf2JytteHQ6Z823+87yHeqKXKE6GDu22mkKGJQI5gc1KB/4636BONMb/pi5KOET+ZCIi7+DfCBos7rUrTgcEYc/53LJFExBzI2a3yxjodA0hM0a9qZKLjYcuBgK5vW7SKula0CSn7VLejMsssKhbf5fA17Wn/ADKSAYHUMPKJKbgSDNTLjuwxH6EUG6OnO3eoD5wdVB/Qs5aG6t8rRRzlxVWXZpiEu01Sbok4qPFW9tg4wHPgRcWJiXe228lobKMd/DzHbo4EU2zcnnthhaFRVsH5a4ZsYl2P7M+yqdYv0DqwOoqLLXrYS4zTbzhzm/1iA+T1B/+XTK9/R7ywpSUavSRAch+HiTK4B7yXibbW0rRLJSE+G8isrjKpvoOS6Oh/FkebU--JEvoHomEhRqPb8j5--KS6z8e5Ng2khL/8pYt8aMQ=="
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 3000.minutes.to_i
+end
+  config.navigational_formats = []
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3649a220fc23bb535adf5395e76eb69bd76f30cdf3fb161a4cf02d8c0549d991186a33dc1bbb91067f9bd1a1456c5fbb9e24f0ecea821f0f801621cb0fce67bc'
+  # config.secret_key = '8c9e359567649d3ef1109eadcd1ee0e38fb26a77f06cc95475b70d9fba19fad21a28c90e42ae67c46f4451b2ffbd10bd87978a77af99e598551988d0b8979aca'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +137,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c470fcf97a7ba43c468aa300e39a03e0e8ac296679c711b75a26e801f07ac027ace6d447425dba5dc2c7fd2297b14a0cee04127471d73aefaae9b8024cae780a'
+  # config.pepper = '196e6b189455896105f1477c235625fe5d65401b636674d012df1a3fa78c1a6897cb47b024b7fb579e21b72b67c3b265e44d96d3cc5244e49d97c41775cadb83'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -263,21 +274,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = []
-
-  config.jwt do |jwt|
-    jwt.secret = "c178fe3c0330ce3cf3c44b03d0dc1989ac621ed908bfe2812716e7d7e1b006e11fcb3ad5c2572e2d27a1e292ae32cb46cec3bfdc48669d16a06c72e00760115f"
-    jwt.request_formats = {
-      landlord: [nil, :json]
-    }
-    jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
-    ]
-    jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
-    ]
-    jwt.expiration_time = 30.minutes.to_i
-  end
+  # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete

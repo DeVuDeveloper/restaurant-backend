@@ -14,3 +14,4 @@ module RackSessionFix
       request.env['rack.session'] ||= FakeRackSession.new
     end
   end
+end

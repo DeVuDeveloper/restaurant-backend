@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'private/test'
+  mount Rswag::Ui::Engine => '/'
+  mount Rswag::Api::Engine => '/api-docs'
+
   resources :current_user, only: [:index, :update]
   
   devise_for :users, path: '', path_names: {
@@ -11,5 +13,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1 do
+      resources :reservations, only: [:index, :create, :destroy]
+      resources :cars, only: %i[index show create destroy]
+    end
+  end
 end

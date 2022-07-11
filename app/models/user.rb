@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_one_attached :image, dependent: :destroy
-  
+  has_many :reservations, dependent: :destroy
+  has_many :cars, dependent: :destroy
+ 
+
   # validates :name, presence: true, length: { maximum: 20 }
 
   def jwt_payload
