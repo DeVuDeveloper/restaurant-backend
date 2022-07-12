@@ -7,7 +7,7 @@ require 'active_support/core_ext/integer/time'
 # your test database is "scratch space" for the test suite and is wiped
 # and recreated between test runs. Don't rely on the data there!
 Rails.application.routes.default_url_options = {
-  host:'localhost:3001'
+  host:'https://restaurant-dejan-backend.herokuapp.com'
 }
 
 Rails.application.configure do
@@ -41,7 +41,7 @@ Rails.application.configure do
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
 
-  config.action_mailer.default_url_options = { host:'localhost:3001' }
+  config.action_mailer.default_url_options = { host:'https://restaurant-dejan-backend.herokuapp.com' }
 
   config.action_mailer.perform_caching = false
 
