@@ -1,10 +1,10 @@
-# Rstaurant
+# Restaurant
 
 <div id="top"></div>
 <!-- PROJECT LOGO -->
 <div align="center">
- ## Frontend Repository Link
-<a href="https://github.com/VuDej/restaurant-frontend">Book A Car Frontend</a>
+## Frontend Repository Link
+<a href="https://github.com/VuDej/restaurant-frontend">Restaurant frontend/a>
 
   <a href="https://github.com/VuDej/restaurant-backend#readme"><strong>Explore the docs »</strong></a>
     <br />
